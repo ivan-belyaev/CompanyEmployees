@@ -1,7 +1,8 @@
 version: '3.0'
 services:
+# PostreSQL Host: Your_IP, Port: 5435
    db:
-      image: postgres
+      image: postgres:13
       environment:
         POSTGRES_USER: admin
         POSTGRES_PASSWORD: password
@@ -10,10 +11,30 @@ services:
         - "5435:5432"
       restart: unless-stopped 
       container_name: postgres
+      networks:
+            - app-tier
+      volumes:
+            - ./volume:/ivan/postgresql
+# pgadmin4 http://localhost:8080/
+   pgadmin4:
+        image: dpage/pgadmin4
+        restart: always
+        ports:
+            - 8080:80
+        depends_on:
+            - db
+        environment:
+            PGADMIN_DEFAULT_EMAIL: "mail@mail.com"
+            PGADMIN_DEFAULT_PASSWORD: "123456"
+        container_name: pgadmin4
+        networks:
+            - app-tier
+
+# Company Emploeees
    companyemployees:
      depends_on:
        - db
-     image: ivan/companyemployees:runtime
+     image: companyemployees
      build:
        context: .
      container_name: companyemployees_api
@@ -25,3 +46,7 @@ services:
        - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/companyemployees.pfx
      volumes: 
        - ${USERPROFILE}/.aspnet/https:/https/ 
+
+networks:
+    app-tier:
+        driver: bridge
