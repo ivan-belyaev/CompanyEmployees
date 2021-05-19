@@ -14,6 +14,7 @@ namespace CompanyEmployees
     {
         public Startup(IConfiguration configuration)
         {
+            // Configuring Logger Service for Loggig Messages
             LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
             Configuration = configuration;
         }
@@ -44,11 +45,16 @@ namespace CompanyEmployees
                 app.UseHsts();
             }
 
+            // Https
             app.UseHttpsRedirection();
+
+            // enables using static files for the request
             app.UseStaticFiles();
 
+            // CORS
             app.UseCors("CorsPolicy");
 
+            // will forward proxy headers to the current request. This will help us during application deployment
             app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
                 ForwardedHeaders = ForwardedHeaders.All

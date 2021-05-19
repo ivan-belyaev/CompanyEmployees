@@ -4,6 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Entities
 {
+    /// <summary>
+    /// Repository Context
+    /// </summary>
     public class RepositoryContext : DbContext
     {
         public RepositoryContext(DbContextOptions options)
@@ -11,6 +14,9 @@ namespace Entities
         {
         }
 
+        /// <summary>
+        /// Seed default data
+        /// </summary>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new CompanyConfiguration());

@@ -5,8 +5,14 @@ using System;
 
 namespace Entities.Configuration
 {
+    /// <summary>
+    /// Company Configuration
+    /// </summary>
     public class CompanyConfiguration : IEntityTypeConfiguration<Company>
     {
+        /// <summary>
+        /// Seed default data
+        /// </summary>
         public void Configure(EntityTypeBuilder<Company> builder)
         {
             builder.HasData
