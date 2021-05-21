@@ -3,17 +3,37 @@ using Entities;
 
 namespace Repository
 {
+    /// <summary>
+    /// Repository Managery
+    /// </summary>
     public class RepositoryManager : IRepositoryManager
     {
+        /// <summary>
+        /// Repository Context
+        /// </summary>        
         private RepositoryContext _repositoryContext;
+
+        /// <summary>
+        /// Company Repository
+        /// </summary>     
         private ICompanyRepository _companyRepository;
+
+        /// <summary>
+        /// Employee Repository
+        /// </summary>  
         private IEmployeeRepository _employeeRepository;
 
+        /// <summary>
+        /// ctor
+        /// </summary>  
         public RepositoryManager(RepositoryContext repositoryContext)
         {
             _repositoryContext = repositoryContext;
         }
 
+        /// <summary>
+        /// Company 
+        /// </summary>  
         public ICompanyRepository Company
         {
             get
@@ -25,6 +45,9 @@ namespace Repository
             }
         }
 
+        /// <summary>
+        /// Employee 
+        /// </summary>  
         public IEmployeeRepository Employee
         {
             get
@@ -35,6 +58,10 @@ namespace Repository
                 return _employeeRepository;
             }
         }
+
+        /// <summary>
+        /// Save changes 
+        /// </summary>  
         public void Save() => _repositoryContext.SaveChanges();
     }
 }
