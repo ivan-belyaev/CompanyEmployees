@@ -1,6 +1,16 @@
 # CompanyEmployees
-Company Employees WEB API 
-From CMD run:
-dotnet dev-certs https --clean
-dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\companyemployees.pfx -p awesomepass
-dotnet dev-certs https --trust
+
+# Description
+
+Company Employees WEB API<br>
+From CMD run<br>
+dotnet dev-certs https --clean<br>
+dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\companyemployees.pfx -p awesomepass<br>
+dotnet dev-certs https --trust<br>
+
+# Features
+
+- [x] ASP.NET Core 3.1
+- [x] DataBase PostgreSQL with Pgadmin
+- [x] Repository Pattern
+- [x] AutoMapper

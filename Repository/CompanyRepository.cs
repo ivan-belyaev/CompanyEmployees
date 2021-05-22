@@ -1,6 +1,8 @@
 ﻿using Contracts;
 using Entities;
 using Entities.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Repository
 {
@@ -9,9 +11,18 @@ namespace Repository
     /// </summary>
     public class CompanyRepository : RepositoryBase<Company>, ICompanyRepository
     {
+        /// <summary>
+        /// Ctor
+        /// </summary>
         public CompanyRepository(RepositoryContext repositoryContext)
             :base(repositoryContext)
         {
         }
+
+        /// <inheritdoc/>
+        public IEnumerable<Company> GetAllCompanies(bool trackChanges) =>
+           FindAll(trackChanges)
+           .OrderBy(c => c.Name)
+           .ToList();
     }
 }
