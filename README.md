@@ -14,3 +14,4 @@ dotnet dev-certs https --trust<br>
 - [x] DataBase PostgreSQL with Pgadmin
 - [x] Repository Pattern
 - [x] AutoMapper
+- [x] Global Error Handling
