@@ -1,6 +1,7 @@
 ﻿using Contracts;
 using Entities;
 using Entities.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -24,5 +25,10 @@ namespace Repository
            FindAll(trackChanges)
            .OrderBy(c => c.Name)
            .ToList();
+
+        /// <inheritdoc/>
+        public Company GetCompany(Guid companyId, bool trackChanges) =>
+            FindByCondition(c => c.Id.Equals(companyId), trackChanges)
+            .SingleOrDefault();
     }
 }
