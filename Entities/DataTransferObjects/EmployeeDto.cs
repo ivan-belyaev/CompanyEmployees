@@ -2,6 +2,9 @@
 
 namespace Entities.DataTransferObjects
 {
+    /// <summary>
+    /// Employee Dto
+    /// </summary>
     public class EmployeeDto
     {
         /// <summary>
