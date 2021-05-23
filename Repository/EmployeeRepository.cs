@@ -35,6 +35,10 @@ namespace Repository
             Create(employee);
         }
 
-
+        /// <inheritdoc/>
+        public void DeleteEmployee(Employee employee)
+        {
+            Delete(employee);
+        }
     }
 }

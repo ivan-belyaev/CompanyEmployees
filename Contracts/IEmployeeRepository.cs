@@ -30,5 +30,12 @@ namespace Contracts
         /// <param name="companyId">Company Id</param>
         /// <param name="employee">Employee</param>
         void CreateEmployeeForCompany(Guid companyId, Employee employee);
+
+        /// <summary>
+        /// Delete Employee
+        /// </summary>
+        /// <param name="employee">Employee</param>
+        void DeleteEmployee(Employee employee);
+
     }
 }

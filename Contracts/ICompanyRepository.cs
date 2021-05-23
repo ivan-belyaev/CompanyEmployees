@@ -34,5 +34,11 @@ namespace Contracts
         /// <param name="ids">Ids</param>
         /// <param name="trackChanges">Track Changes</param>
         IEnumerable<Company> GetByIds(IEnumerable<Guid> ids, bool trackChanges);
+
+        /// <summary>
+        /// Delete Company
+        /// </summary>
+        /// <param name="employee">Employee</param>
+        void DeleteCompany(Company company);
     }
 }
