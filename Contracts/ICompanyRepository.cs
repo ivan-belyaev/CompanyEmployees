@@ -12,11 +12,27 @@ namespace Contracts
         /// <summary>
         /// Get All Companies
         /// </summary>
+        /// <param name="trackChanges">Track Changes</param>       
         IEnumerable<Company> GetAllCompanies(bool trackChanges);
 
         /// <summary>
         /// Get Company
         /// </summary>
+        /// <param name="companyId">Company Id</param>
+        /// <param name="trackChanges">Track Changes</param>
         Company GetCompany(Guid companyId, bool trackChanges);
+
+        /// <summary>
+        /// Create Company
+        /// </summary>
+        /// <param name="company">Company</param>
+        void CreateCompany(Company company);
+
+        /// <summary>
+        /// Get By Ids
+        /// </summary>
+        /// <param name="ids">Ids</param>
+        /// <param name="trackChanges">Track Changes</param>
+        IEnumerable<Company> GetByIds(IEnumerable<Guid> ids, bool trackChanges);
     }
 }
