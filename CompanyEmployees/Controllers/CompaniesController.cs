@@ -157,7 +157,7 @@ namespace CompanyEmployees.Controllers
         /// PUT: Update Company
         /// </summary>
         [HttpPut("{id}")]
-        public IActionResult UpdateCompany(Guid id, [FromBody] CompanyForUpdateDto company)
+        public IActionResult UpdateCompany(Guid id, [FromBody] CompanyForManipulationDto company)
         {
             if (company == null)
             {
