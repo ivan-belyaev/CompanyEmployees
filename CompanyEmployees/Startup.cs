@@ -38,7 +38,8 @@ namespace CompanyEmployees
                 //tells the server that if the client tries to negotiate for the media type the
                 //server doesn’t support, it should return the 406 Not Acceptable status code
                 config.ReturnHttpNotAcceptable = true;
-            }).AddXmlDataContractSerializerFormatters()
+            }).AddNewtonsoftJson()
+              .AddXmlDataContractSerializerFormatters()
               .AddCustomCSVFormatter();
         }
 
