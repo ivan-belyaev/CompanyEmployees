@@ -1,6 +1,7 @@
 ﻿using Entities.Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Contracts
 {
@@ -14,7 +15,7 @@ namespace Contracts
         /// </summary>
         /// <param name="companyId">Company Id</param>
         /// <param name="trackChanges">Track Changes</param>
-        IEnumerable<Employee> GetEmployees(Guid companyId, bool trackChanges);
+        Task<IEnumerable<Employee>> GetEmployeesAsync(Guid companyId, bool trackChanges);
 
         /// <summary>
         /// Get Employee of Company by Id
@@ -22,7 +23,7 @@ namespace Contracts
         /// <param name="companyId">Company Id</param>
         /// <param name="id">Get employee id</param>
         /// <param name="trackChanges">Track Changes</param>
-        Employee GetEmployee(Guid companyId, Guid id, bool trackChanges);
+        Task<Employee> GetEmployeeAsync(Guid companyId, Guid id, bool trackChanges);
 
         /// <summary>
         /// Create Employee For Company

@@ -15,3 +15,5 @@ dotnet dev-certs https --trust<br>
 - [x] Repository Pattern
 - [x] AutoMapper
 - [x] Global Error Handling
+- [x] GET, POST, PUT, PATCH, DETELE
+- [x] Asynchronous code

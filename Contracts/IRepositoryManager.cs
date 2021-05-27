@@ -1,4 +1,6 @@
-﻿namespace Contracts
+﻿using System.Threading.Tasks;
+
+namespace Contracts
 {
     /// <summary>
     ///  Iterface Repository Manager
@@ -18,6 +20,6 @@
         /// <summary>
         ///  Save
         /// </summary>
-        void Save();
+        Task SaveAsync();
     }
 }
