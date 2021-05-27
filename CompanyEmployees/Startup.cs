@@ -1,3 +1,4 @@
+using CompanyEmployees.ActionFilters;
 using CompanyEmployees.Extensions;
 using Contracts;
 using Microsoft.AspNetCore.Builder;
@@ -32,6 +33,10 @@ namespace CompanyEmployees
             services.ConfigureSqlContext(Configuration);
             services.ConfigureRepositoryManager();
             services.AddAutoMapper(typeof(Startup));
+            // Action filters
+            services.AddScoped<ValidationFilterAttribute>();
+            services.AddScoped<ValidateCompanyExistsAttribute>();
+            services.AddScoped<ValidateEmployeeForCompanyExistsAttribute>();
 
             // To return 422 instead of 400, when the ModelState is invalid
             services.Configure<ApiBehaviorOptions>(options =>

@@ -17,3 +17,4 @@ dotnet dev-certs https --trust<br>
 - [x] Global Error Handling
 - [x] GET, POST, PUT, PATCH, DETELE
 - [x] Asynchronous code
+- [x] Action Filters
