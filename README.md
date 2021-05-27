@@ -19,3 +19,4 @@ dotnet dev-certs https --trust<br>
 - [x] Asynchronous code
 - [x] Action Filters
 - [x] Paging
+- [x] Filtering
