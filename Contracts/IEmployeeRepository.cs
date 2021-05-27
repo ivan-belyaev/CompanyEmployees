@@ -1,6 +1,6 @@
 ﻿using Entities.Models;
+using Entities.RequestFeatures;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Contracts
@@ -15,7 +15,7 @@ namespace Contracts
         /// </summary>
         /// <param name="companyId">Company Id</param>
         /// <param name="trackChanges">Track Changes</param>
-        Task<IEnumerable<Employee>> GetEmployeesAsync(Guid companyId, bool trackChanges);
+        Task<PagedList<Employee>> GetEmployeesAsync(Guid companyId, EmployeeParameters employeeParameters, bool trackChanges);
 
         /// <summary>
         /// Get Employee of Company by Id
