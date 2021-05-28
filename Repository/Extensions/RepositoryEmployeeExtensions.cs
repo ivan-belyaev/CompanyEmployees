@@ -1,8 +1,7 @@
 ﻿using Entities.Models;
-using System;
-using System.Collections.Generic;
+using Repository.Extensions.Utility;
 using System.Linq;
-using System.Text;
+using System.Linq.Dynamic.Core;
 
 namespace Repository.Extensions
 {
@@ -28,6 +27,25 @@ namespace Repository.Extensions
             var lowerCaseTerm = searchTerm.Trim().ToLower();
 
             return employees.Where(e => e.Name.ToLower().Contains(lowerCaseTerm));
+        }
+
+
+        /// <summary>
+        /// Sort
+        /// </summary>
+        public static IQueryable<Employee> Sort(this IQueryable<Employee> employees, string orderByQueryString)
+        {
+            // If it is null or empty, we just return the same collection ordered by name.
+            if (string.IsNullOrWhiteSpace(orderByQueryString))
+                return employees.OrderBy(e => e.Name);
+
+            var orderQuery = OrderQueryBuilder.CreateOrderQuery<Employee>(orderByQueryString);
+
+            // doing one last check to see if our query indeed has something in it
+            if (string.IsNullOrWhiteSpace(orderQuery))
+                return employees.OrderBy(e => e.Name);
+
+            return employees.OrderBy(orderQuery);
         }
     }
 }

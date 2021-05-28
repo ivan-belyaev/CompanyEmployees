@@ -35,5 +35,10 @@ namespace Entities.RequestFeatures
                 _pageSize = (value > maxPageSize) ? maxPageSize : value;
             }
         }
+
+        /// <summary>
+        /// Order By
+        /// </summary>
+        public string OrderBy { get; set; }
     }
 }

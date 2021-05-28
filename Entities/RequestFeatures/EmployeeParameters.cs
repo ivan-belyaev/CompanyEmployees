@@ -6,6 +6,14 @@ namespace Entities.RequestFeatures
     /// </summary>
     public class EmployeeParameters : RequestParameters
     {
+
+        /// <summary>
+        /// Ctor
+        /// </summary>
+        public EmployeeParameters() 
+        { 
+            OrderBy = "name"; 
+        }
         /// <summary>
         /// Min Age
         /// </summary>

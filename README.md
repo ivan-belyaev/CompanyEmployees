@@ -21,3 +21,4 @@ dotnet dev-certs https --trust<br>
 - [x] Paging
 - [x] Filtering
 - [x] Searching
+- [x] Sorting
