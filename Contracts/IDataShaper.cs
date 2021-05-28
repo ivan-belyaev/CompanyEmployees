@@ -10,7 +10,13 @@ namespace Contracts
         /// </summary>
         /// <param name="entities">Entities</param>
         /// <param name="fieldsString">fields String</param>
-        IEnumerable<Entity> ShapeData(IEnumerable<T> entities, string fieldsString);
-        Entity ShapeData(T entity, string fieldsString);
+        IEnumerable<ShapedEntity> ShapeData(IEnumerable<T> entities, string fieldsString);
+
+        /// <summary>
+        /// Shape Data
+        /// </summary>
+        /// <param name="entity">Entity</param>
+        /// <param name="fieldsString">fields String</param>
+        ShapedEntity ShapeData(T entity, string fieldsString);
     }
 }

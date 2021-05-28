@@ -2,7 +2,7 @@
 namespace Entities.RequestFeatures
 {
     /// <summary>
-    /// Request Parameters: 10
+    /// Request Parameters
     /// </summary>
     public abstract class RequestParameters
     {
