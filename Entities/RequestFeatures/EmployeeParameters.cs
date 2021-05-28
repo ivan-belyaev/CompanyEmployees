@@ -20,5 +20,10 @@ namespace Entities.RequestFeatures
         /// Valid Age Range
         /// </summary>
         public bool ValidAgeRange => MaxAge > MinAge;
+
+        /// <summary>
+        /// Search Term
+        /// </summary>
+        public string SearchTerm { get; set; }
     }
 }
