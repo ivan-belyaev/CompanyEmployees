@@ -20,18 +20,35 @@ namespace CompanyEmployees.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
+        /// <summary>
+        /// Repository Manager
+        /// </summary>
         private readonly IRepositoryManager _repository;
+
+        /// <summary>
+        /// Logger
+        /// </summary>
         private readonly ILoggerManager _logger;
+
+        /// <summary>
+        /// Auto Mapper
+        /// </summary>
         private readonly IMapper _mapper;
+
+        /// <summary>
+        /// Data shaper
+        /// </summary>
+        private readonly IDataShaper<EmployeeDto> _dataShaper;
 
         /// <summary>
         /// ctor
         /// </summary>
-        public EmployeesController(IRepositoryManager repository, ILoggerManager logger, IMapper mapper)
+        public EmployeesController(IRepositoryManager repository, ILoggerManager logger, IMapper mapper, IDataShaper<EmployeeDto> dataShaper)
         {
             _repository = repository;
             _logger = logger;
             _mapper = mapper;
+            _dataShaper = dataShaper;
         }
 
         /// <summary>
@@ -56,7 +73,7 @@ namespace CompanyEmployees.Controllers
 
             var employeesDto = _mapper.Map<IEnumerable<EmployeeDto>>(employeesFromDb);
 
-            return Ok(employeesDto);
+            return Ok(_dataShaper.ShapeData(employeesDto, employeeParameters.Fields));
         }
 
         /// <summary>

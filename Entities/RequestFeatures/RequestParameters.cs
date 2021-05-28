@@ -40,5 +40,10 @@ namespace Entities.RequestFeatures
         /// Order By
         /// </summary>
         public string OrderBy { get; set; }
+
+        /// <summary>
+        /// Fields
+        /// </summary>
+        public string Fields { get; set; }
     }
 }
