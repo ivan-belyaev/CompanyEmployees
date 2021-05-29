@@ -1,3 +1,4 @@
+using AspNetCoreRateLimit;
 using CompanyEmployees.ActionFilters;
 using CompanyEmployees.Extensions;
 using CompanyEmployees.Utility;
@@ -67,6 +68,11 @@ namespace CompanyEmployees
             // Cashing
             services.ConfigureResponseCaching();
             services.ConfigureHttpCacheHeaders();
+
+            // For rate limits
+            services.AddMemoryCache();
+            services.ConfigureRateLimitingOptions();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -99,7 +105,11 @@ namespace CompanyEmployees
                 ForwardedHeaders = ForwardedHeaders.All
             });
 
+            // Caching
             app.UseResponseCaching();
+
+            // Rate Limiting
+            app.UseIpRateLimiting();
 
             app.UseRouting();
 
