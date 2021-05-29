@@ -46,6 +46,7 @@ namespace CompanyEmployees
             services.AddScoped<EmployeeLinks>();
 
             services.AddScoped<IDataShaper<EmployeeDto>, DataShaper<EmployeeDto>>();
+            services.AddScoped<IAuthenticationManager, AuthenticationManager>();
 
             // To return 422 instead of 400, when the ModelState is invalid
             services.Configure<ApiBehaviorOptions>(options =>
@@ -73,6 +74,11 @@ namespace CompanyEmployees
             services.AddMemoryCache();
             services.ConfigureRateLimitingOptions();
             services.AddHttpContextAccessor();
+
+            // Authentication
+            services.AddAuthentication();
+            services.ConfigureIdentity();
+            services.ConfigureJWT(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -112,6 +118,8 @@ namespace CompanyEmployees
             app.UseIpRateLimiting();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
