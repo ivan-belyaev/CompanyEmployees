@@ -4,6 +4,7 @@ using CompanyEmployees.ModelBinders;
 using Contracts;
 using Entities.DataTransferObjects;
 using Entities.Models;
+using Marvin.Cache.Headers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using System;
@@ -18,6 +19,7 @@ namespace CompanyEmployees.Controllers
     /// </summary>
     [Route("api/companies")]
     [ApiController]
+    //[ResponseCache(CacheProfileName = "120SecondsDuration")]
     public class CompaniesController : ControllerBase
     {
         /// <summary>
@@ -62,6 +64,8 @@ namespace CompanyEmployees.Controllers
         /// GET: Get Company by Id
         /// </summary>
         [HttpGet("{id}", Name = "CompanyById")]
+        [HttpCacheExpiration(CacheLocation = CacheLocation.Public, MaxAge = 60)]
+        [HttpCacheValidation(MustRevalidate = false)]
         public async Task<IActionResult> GetCompany(Guid id)
         {
             var company = await _repository.Company.GetCompanyAsync(id, trackChanges: false);

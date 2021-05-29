@@ -58,11 +58,15 @@ namespace CompanyEmployees
                 //tells the server that if the client tries to negotiate for the media type the
                 //server doesn’t support, it should return the 406 Not Acceptable status code
                 config.ReturnHttpNotAcceptable = true;
+                config.CacheProfiles.Add("120SecondsDuration", new CacheProfile { Duration = 120 });
             }).AddNewtonsoftJson()
               .AddXmlDataContractSerializerFormatters()
               .AddCustomCSVFormatter();
 
             services.ConfigureVersioning();
+            // Cashing
+            services.ConfigureResponseCaching();
+            services.ConfigureHttpCacheHeaders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -94,6 +98,8 @@ namespace CompanyEmployees
             {
                 ForwardedHeaders = ForwardedHeaders.All
             });
+
+            app.UseResponseCaching();
 
             app.UseRouting();
 
