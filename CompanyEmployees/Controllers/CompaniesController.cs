@@ -20,8 +20,19 @@ namespace CompanyEmployees.Controllers
     [ApiController]
     public class CompaniesController : ControllerBase
     {
+        /// <summary>
+        /// Repository Manager
+        /// </summary>
         private readonly IRepositoryManager _repository;
+
+        /// <summary>
+        /// Logger
+        /// </summary>
         private readonly ILoggerManager _logger;
+
+        /// <summary>
+        /// Auto mapper
+        /// </summary>
         private readonly IMapper _mapper;
 
         /// <summary>
