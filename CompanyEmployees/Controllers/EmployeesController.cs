@@ -62,6 +62,7 @@ namespace CompanyEmployees.Controllers
         /// GET: Get Employees For Company
         /// </summary>
         [HttpGet]
+        [HttpHead]
         [ServiceFilter(typeof(ValidateMediaTypeAttribute))]
         public async Task<IActionResult> GetEmployeesForCompany(Guid companyId, [FromQuery] EmployeeParameters employeeParameters)
         {
