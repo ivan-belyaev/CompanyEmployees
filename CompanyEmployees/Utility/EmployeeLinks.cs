@@ -43,7 +43,7 @@ namespace CompanyEmployees.Utility
 
         /// <summary>
         ///  Shape Data
-        /// </summary
+        /// </summary>
         private List<Entity> ShapeData(IEnumerable<EmployeeDto> employeesDto, string fields) =>
             _dataShaper.ShapeData(employeesDto, fields)
                 .Select(e => e.Entity)
@@ -51,7 +51,7 @@ namespace CompanyEmployees.Utility
 
         /// <summary>
         ///  Should Generate Links
-        /// </summary
+        /// </summary>
         private bool ShouldGenerateLinks(HttpContext httpContext)
         {
             var mediaType = (MediaTypeHeaderValue)httpContext.Items["AcceptHeaderMediaType"];
@@ -61,12 +61,12 @@ namespace CompanyEmployees.Utility
 
         /// <summary>
         ///  Return Shaped Employees
-        /// </summary
+        /// </summary>
         private LinkResponse ReturnShapedEmployees(List<Entity> shapedEmployees) => new LinkResponse { ShapedEntities = shapedEmployees };
 
         /// <summary>
         ///  Return Linkded Employees
-        /// </summary
+        /// </summary>
         private LinkResponse ReturnLinkdedEmployees(IEnumerable<EmployeeDto> employeesDto, string fields, Guid companyId, HttpContext httpContext, List<Entity> shapedEmployees)
         {
             var employeeDtoList = employeesDto.ToList();
@@ -85,7 +85,7 @@ namespace CompanyEmployees.Utility
 
         /// <summary>
         ///  Create Links For Employee
-        /// </summary
+        /// </summary>
         private List<Link> CreateLinksForEmployee(HttpContext httpContext, Guid companyId, Guid id, string fields = "")
         {
             var links = new List<Link>
@@ -109,7 +109,7 @@ namespace CompanyEmployees.Utility
 
         /// <summary>
         ///  Create Links For Employees
-        /// </summary
+        /// </summary>
         private LinkCollectionWrapper<Entity> CreateLinksForEmployees(HttpContext httpContext, LinkCollectionWrapper<Entity> employeesWrapper)
         {
             employeesWrapper.Links.Add(new Link(_linkGenerator.GetUriByAction(httpContext, "GetEmployeesForCompany", values: new { }),

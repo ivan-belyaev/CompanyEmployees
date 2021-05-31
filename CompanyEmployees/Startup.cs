@@ -71,14 +71,17 @@ namespace CompanyEmployees
             services.ConfigureHttpCacheHeaders();
 
             // For rate limits
-            services.AddMemoryCache();
-            services.ConfigureRateLimitingOptions();
-            services.AddHttpContextAccessor();
+            //services.AddMemoryCache();
+            //services.ConfigureRateLimitingOptions();
+            //services.AddHttpContextAccessor();
 
             // Authentication
             services.AddAuthentication();
             services.ConfigureIdentity();
             services.ConfigureJWT(Configuration);
+
+            // Swagger 
+            services.ConfigureSwagger();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -115,13 +118,20 @@ namespace CompanyEmployees
             app.UseResponseCaching();
 
             // Rate Limiting
-            app.UseIpRateLimiting();
+            //app.UseIpRateLimiting();
 
             app.UseRouting();
 
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(s =>
+            {
+                s.SwaggerEndpoint("/swagger/v1/swagger.json", "Company Employees API v1");
+                s.SwaggerEndpoint("/swagger/v2/swagger.json", "Company Employees API v2");
+            });
 
             app.UseEndpoints(endpoints =>
             {

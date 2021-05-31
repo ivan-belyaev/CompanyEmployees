@@ -7,6 +7,8 @@ From CMD run<br>
 dotnet dev-certs https --clean<br>
 dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\companyemployees.pfx -p awesomepass<br>
 dotnet dev-certs https --trust<br>
+As administrator perform<br>
+setx SECRET "SecretKey" /M<br>
 
 # Features
 
@@ -27,3 +29,4 @@ dotnet dev-certs https --trust<br>
 - [x] Caching
 - [x] Rate Limiting
 - [x] JWT
+- [x] SWAGGER

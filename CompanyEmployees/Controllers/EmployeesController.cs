@@ -19,6 +19,7 @@ namespace CompanyEmployees.Controllers
     /// </summary>
     [Route("api/companies/{companyId}/employees")]
     [ApiController]
+    [ApiExplorerSettings(GroupName = "v1")]
     public class EmployeesController : ControllerBase
     {
         /// <summary>

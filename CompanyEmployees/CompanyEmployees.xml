@@ -1,0 +1,498 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CompanyEmployees</name>
+    </assembly>
+    <members>
+        <member name="T:CompanyEmployees.ActionFilters.ValidateCompanyExistsAttribute">
+            <summary>
+            Validate CompanyExists Attribute
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.ActionFilters.ValidateCompanyExistsAttribute._repository">
+            <summary>
+            Repository Manager
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.ActionFilters.ValidateCompanyExistsAttribute._logger">
+            <summary>
+            Logger Manager
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.ActionFilters.ValidateCompanyExistsAttribute.#ctor(Contracts.IRepositoryManager,Contracts.ILoggerManager)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.ActionFilters.ValidateCompanyExistsAttribute.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)">
+            <summary>
+            On Action Execution Async
+            </summary>
+            <param name="context">Context</param>
+            <param name="next">Action Execution Delegate</param>
+        </member>
+        <member name="F:CompanyEmployees.ActionFilters.ValidateEmployeeForCompanyExistsAttribute._repository">
+            <summary>
+            Repository Manager
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.ActionFilters.ValidateEmployeeForCompanyExistsAttribute._logger">
+            <summary>
+            Logger Manager
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.ActionFilters.ValidateEmployeeForCompanyExistsAttribute.#ctor(Contracts.IRepositoryManager,Contracts.ILoggerManager)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.ActionFilters.ValidateEmployeeForCompanyExistsAttribute.OnActionExecutionAsync(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext,Microsoft.AspNetCore.Mvc.Filters.ActionExecutionDelegate)">
+            <summary>
+            On Action Execution Async
+            </summary>
+            <param name="context">Context</param>
+            <param name="next">Action Execution Delegate</param>
+        </member>
+        <member name="T:CompanyEmployees.ActionFilters.ValidateMediaTypeAttribute">
+            <summary>
+            Validate Media Type Attribute
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.ActionFilters.ValidateMediaTypeAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            On Action Executing
+            </summary>
+            <param name="context">Action Executing Context</param>
+        </member>
+        <member name="M:CompanyEmployees.ActionFilters.ValidateMediaTypeAttribute.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            On Action Executed
+            </summary>
+            <param name="context">Action Executing Context</param>
+        </member>
+        <member name="T:CompanyEmployees.ActionFilters.ValidationFilterAttribute">
+            <summary>
+            Validation Filter Attribute
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.ActionFilters.ValidationFilterAttribute._logger">
+            <summary>
+            Logger Manager
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.ActionFilters.ValidationFilterAttribute.#ctor(Contracts.ILoggerManager)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.ActionFilters.ValidationFilterAttribute.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            On Action Executing
+            </summary>
+            <param name="context">Action Executing Context</param>
+        </member>
+        <member name="F:CompanyEmployees.Controllers.AuthenticationController._logger">
+            <summary>
+            Logger
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Controllers.AuthenticationController._mapper">
+            <summary>
+            Automapper
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Controllers.AuthenticationController._userManager">
+            <summary>
+            User manager
+            </summary>
+        </member>
+        <member name="T:CompanyEmployees.Controllers.CompaniesController">
+            <summary>
+            Companies Controller
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Controllers.CompaniesController._repository">
+            <summary>
+            Repository Manager
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Controllers.CompaniesController._logger">
+            <summary>
+            Logger
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Controllers.CompaniesController._mapper">
+            <summary>
+            Auto mapper
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.CompaniesController.#ctor(Contracts.IRepositoryManager,Contracts.ILoggerManager,AutoMapper.IMapper)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.CompaniesController.GetCompanies">
+            <summary>
+            GET: Gets the list of all companies
+            </summary>
+            <returns>The companies list</returns>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.CompaniesController.GetCompany(System.Guid)">
+            <summary>
+            GET: Get Company by Id
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.CompaniesController.CreateCompany(Entities.DataTransferObjects.CompanyForCreationDto)">
+            <summary>
+            POST: Creates a newly created company
+            </summary>
+            <param name="company"></param>
+            <returns>A newly created company</returns>
+            <response code="201">Returns the newly created item</response>
+            <response code="400">If the item is null</response>
+            <response code="422">If the model is invalid</response>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.CompaniesController.GetCompanyCollection(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            GET: Get company collection
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.CompaniesController.CreateCompanyCollection(System.Collections.Generic.IEnumerable{Entities.DataTransferObjects.CompanyForCreationDto})">
+            <summary>
+            POST: Create Company Collection
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.CompaniesController.DeleteCompany(System.Guid)">
+            <summary>
+            DELETE: Delete Company
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.CompaniesController.UpdateCompany(System.Guid,Entities.DataTransferObjects.CompanyForUpdateDto)">
+            <summary>
+            PUT: Update Company
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.CompaniesController.GetCompaniesOptions">
+            <summary>
+            OPTIONS: Get Companies Options
+            </summary>
+        </member>
+        <member name="T:CompanyEmployees.Controllers.CompaniesV2Controller">
+            <summary>
+            Companies V2 Controller
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Controllers.CompaniesV2Controller._repository">
+            <summary>
+            Repository Manager
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.CompaniesV2Controller.#ctor(Contracts.IRepositoryManager)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.CompaniesV2Controller.GetCompanies">
+            <summary>
+            GET: Get Companies
+            </summary>
+        </member>
+        <member name="T:CompanyEmployees.Controllers.EmployeesController">
+            <summary>
+            Companies Controller
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Controllers.EmployeesController._repository">
+            <summary>
+            Repository Manager
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Controllers.EmployeesController._logger">
+            <summary>
+            Logger
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Controllers.EmployeesController._mapper">
+            <summary>
+            Auto Mapper
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Controllers.EmployeesController._dataShaper">
+            <summary>
+            Data shaper
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Controllers.EmployeesController._employeeLinks">
+            <summary>
+            Employee Links
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.EmployeesController.#ctor(Contracts.IRepositoryManager,Contracts.ILoggerManager,AutoMapper.IMapper,Contracts.IDataShaper{Entities.DataTransferObjects.EmployeeDto},CompanyEmployees.Utility.EmployeeLinks)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.EmployeesController.GetEmployeesForCompany(System.Guid,Entities.RequestFeatures.EmployeeParameters)">
+            <summary>
+            GET: Get Employees For Company
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.EmployeesController.GetEmployeeForCompany(System.Guid,System.Guid)">
+            <summary>
+            GET: Get Employees For Company by id
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.EmployeesController.CreateEmployeeForCompany(System.Guid,Entities.DataTransferObjects.EmployeeForCreationDto)">
+            <summary>
+            POST: Create Employee For Company
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.EmployeesController.DeleteEmployeeForCompany(System.Guid,System.Guid)">
+            <summary>
+            DELETE: Delete employee of company
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.EmployeesController.UpdateEmployeeForCompany(System.Guid,System.Guid,Entities.DataTransferObjects.EmployeeForUpdateDto)">
+            <summary>
+            PUT: Update Employee of Company by Id
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.EmployeesController.PartiallyUpdateEmployeeForCompany(System.Guid,System.Guid,Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{Entities.DataTransferObjects.EmployeeForUpdateDto})">
+            <summary>
+            PATCH: Partially UpdateE mployee For Company by Id
+            </summary>
+        </member>
+        <member name="T:CompanyEmployees.Controllers.RootController">
+            <summary>
+            Root Controller
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Controllers.RootController._linkGenerator">
+            <summary>
+            Link Generator
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.RootController.#ctor(Microsoft.AspNetCore.Routing.LinkGenerator)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Controllers.RootController.GetRoot(System.String)">
+            <summary>
+            GET: Get Root
+            </summary>
+        </member>
+        <member name="T:CompanyEmployees.CsvOutputFormatter">
+            <summary>
+            Csv Output Formatter
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.CsvOutputFormatter.#ctor">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.CsvOutputFormatter.CanWriteType(System.Type)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CompanyEmployees.CsvOutputFormatter.WriteResponseBodyAsync(Microsoft.AspNetCore.Mvc.Formatters.OutputFormatterWriteContext,System.Text.Encoding)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CompanyEmployees.CsvOutputFormatter.FormatCsv(System.Text.StringBuilder,Entities.DataTransferObjects.CompanyDto)">
+            <summary>
+            Format Csv
+            </summary>
+            <param name="buffer">buffer</param>
+            <param name="company">company dto</param>
+        </member>
+        <member name="T:CompanyEmployees.Extensions.ExceptionMiddlewareExtensions">
+            <summary>
+            Exception Middleware Extensions
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ExceptionMiddlewareExtensions.ConfigureExceptionHandler(Microsoft.AspNetCore.Builder.IApplicationBuilder,Contracts.ILoggerManager)">
+            <summary>
+            Configure Exception Handler using Middleware
+            </summary>
+            <param name="app">Application Builder</param>
+            <param name="logger">Logger</param>
+        </member>
+        <member name="T:CompanyEmployees.Extensions.ServiceExtensions">
+            <summary>
+            Service section
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.ConfigureCors(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            CORS configuration
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.ConfigureIISIntegration(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            IIS Configuration
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.ConfigureLoggerService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure Logger Nlog: Scoped
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.ConfigureSqlContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Configure Database: PostgreSQL
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.ConfigureRepositoryManager(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure Repository Manager: Scoped
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.AddCustomCSVFormatter(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            Add Custom CSV Formatter
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.AddCustomMediaTypes(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add Custom Media Types
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.ConfigureVersioning(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure Versioning
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.ConfigureResponseCaching(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure Response Caching
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.ConfigureHttpCacheHeaders(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure Http Cache Headers
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.ConfigureRateLimitingOptions(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure Rate Limiting Options
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.ConfigureIdentity(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure Identity
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.ConfigureJWT(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Configure JWT
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Extensions.ServiceExtensions.ConfigureSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure Swagger
+            </summary>
+        </member>
+        <member name="T:CompanyEmployees.ModelBinders.ArrayModelBinder">
+            <summary>
+             Array Model Binder
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.ModelBinders.ArrayModelBinder.BindModelAsync(Microsoft.AspNetCore.Mvc.ModelBinding.ModelBindingContext)">
+            <summary>
+             Bind Model Async
+            </summary>
+            <param name="bindingContext">Binding Context</param>
+        </member>
+        <member name="T:CompanyEmployees.Utility.AuthenticationManager">
+            <summary>
+            Authentication Manager
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Utility.AuthenticationManager._userManager">
+            <summary>
+            User Manager
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Utility.AuthenticationManager._configuration">
+            <summary>
+            Configuration
+            </summary>
+        </member>
+        <member name="F:CompanyEmployees.Utility.AuthenticationManager._user">
+            <summary>
+            User
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Utility.AuthenticationManager.#ctor(Microsoft.AspNetCore.Identity.UserManager{Entities.Models.User},Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            ctor
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Utility.AuthenticationManager.ValidateUser(Entities.DataTransferObjects.UserForAuthenticationDto)">
+            <inheritdoc/>
+        </member>
+        <member name="M:CompanyEmployees.Utility.AuthenticationManager.CreateToken">
+            <inheritdoc/>
+        </member>
+        <member name="M:CompanyEmployees.Utility.AuthenticationManager.GetSigningCredentials">
+            <summary>
+            Get Signing Credentials
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Utility.AuthenticationManager.GetClaims">
+            <summary>
+            Get Claims
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Utility.AuthenticationManager.GenerateTokenOptions(Microsoft.IdentityModel.Tokens.SigningCredentials,System.Collections.Generic.List{System.Security.Claims.Claim})">
+            <summary>
+            Generate Token Options
+            </summary>
+        </member>
+        <member name="T:CompanyEmployees.Utility.EmployeeLinks">
+            <summary>
+             Employee Links
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Utility.EmployeeLinks.#ctor(Microsoft.AspNetCore.Routing.LinkGenerator,Contracts.IDataShaper{Entities.DataTransferObjects.EmployeeDto})">
+            <summary>
+             ctor
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Utility.EmployeeLinks.TryGenerateLinks(System.Collections.Generic.IEnumerable{Entities.DataTransferObjects.EmployeeDto},System.String,System.Guid,Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+             TryGenerateLinks
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Utility.EmployeeLinks.ShapeData(System.Collections.Generic.IEnumerable{Entities.DataTransferObjects.EmployeeDto},System.String)">
+            <summary>
+             Shape Data
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Utility.EmployeeLinks.ShouldGenerateLinks(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+             Should Generate Links
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Utility.EmployeeLinks.ReturnShapedEmployees(System.Collections.Generic.List{Entities.Models.Entity})">
+            <summary>
+             Return Shaped Employees
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Utility.EmployeeLinks.ReturnLinkdedEmployees(System.Collections.Generic.IEnumerable{Entities.DataTransferObjects.EmployeeDto},System.String,System.Guid,Microsoft.AspNetCore.Http.HttpContext,System.Collections.Generic.List{Entities.Models.Entity})">
+            <summary>
+             Return Linkded Employees
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Utility.EmployeeLinks.CreateLinksForEmployee(Microsoft.AspNetCore.Http.HttpContext,System.Guid,System.Guid,System.String)">
+            <summary>
+             Create Links For Employee
+            </summary>
+        </member>
+        <member name="M:CompanyEmployees.Utility.EmployeeLinks.CreateLinksForEmployees(Microsoft.AspNetCore.Http.HttpContext,Entities.LinkModels.LinkCollectionWrapper{Entities.Models.Entity})">
+            <summary>
+             Create Links For Employees
+            </summary>
+        </member>
+    </members>
+</doc>
