@@ -24,3 +24,6 @@ dotnet dev-certs https --trust<br>
 - [x] Sorting
 - [x] HATEOAS
 - [x] Versioning
+- [x] Caching
+- [x] Rate Limiting
+- [x] JWT
