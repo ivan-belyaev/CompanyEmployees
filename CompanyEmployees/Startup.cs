@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Logging;
 using NLog;
 using Repository.DataShaping;
 using System.IO;
@@ -71,9 +72,9 @@ namespace CompanyEmployees
             services.ConfigureHttpCacheHeaders();
 
             // For rate limits
-            //services.AddMemoryCache();
-            //services.ConfigureRateLimitingOptions();
-            //services.AddHttpContextAccessor();
+            services.AddMemoryCache();
+            services.ConfigureRateLimitingOptions();
+            services.AddHttpContextAccessor();
 
             // Authentication
             services.AddAuthentication();
@@ -82,6 +83,8 @@ namespace CompanyEmployees
 
             // Swagger 
             services.ConfigureSwagger();
+
+            IdentityModelEventSource.ShowPII = true; //To show detail of error and see the problem
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -118,7 +121,7 @@ namespace CompanyEmployees
             app.UseResponseCaching();
 
             // Rate Limiting
-            //app.UseIpRateLimiting();
+            app.UseIpRateLimiting();
 
             app.UseRouting();
 

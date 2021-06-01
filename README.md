@@ -8,7 +8,7 @@ dotnet dev-certs https --clean<br>
 dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\companyemployees.pfx -p awesomepass<br>
 dotnet dev-certs https --trust<br>
 As administrator perform<br>
-setx SECRET "SecretKey" /M<br>
+setx SECRET "SecretKey" /M and uncomment Environment.GetEnvironmentVariable("SECRET"); in ServiceExtentions.cs, AuthenticationManager.cs<br>
 
 # Features
 
