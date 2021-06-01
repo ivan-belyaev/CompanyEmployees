@@ -35,3 +35,4 @@ setx SECRET "SecretKey" /M and uncomment Environment.GetEnvironmentVariable("SEC
 - [x] Rate Limiting
 - [x] JWT
 - [x] SWAGGER
+- [x] Docker
