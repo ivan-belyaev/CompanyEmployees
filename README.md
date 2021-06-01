@@ -3,10 +3,15 @@
 # Description
 
 Company Employees WEB API<br>
-From CMD run<br>
-dotnet dev-certs https --clean<br>
-dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\companyemployees.pfx -p awesomepass<br>
-dotnet dev-certs https --trust<br>
+Execute steps:<br>
+1. From CMD run<br>
+ dotnet dev-certs https --clean<br>
+ dotnet dev-certs https -ep %USERPROFILE%\.aspnet\https\companyemployees.pfx -p awesomepass<br>
+ dotnet dev-certs https --trust<br>
+ change in appsettings.json YOUR_IP<br>
+2. Run from docker: docker-compose up<br><br>
+Additional<br>
+To add SECRET Key in Enviroment:<br>
 As administrator perform<br>
 setx SECRET "SecretKey" /M and uncomment Environment.GetEnvironmentVariable("SECRET"); in ServiceExtentions.cs, AuthenticationManager.cs<br>
 
