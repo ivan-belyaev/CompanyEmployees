@@ -3,6 +3,11 @@
 # Description
 
 Company Employees WEB API<br>
+<p align="center">
+  <a href="https://github.com/ivan-belyaev/ParkyWeb">
+    <img src="https://github.com/ivan-belyaev/CompanyEmployees/blob/master/CompanyEmployees.png" alt="Logo">
+  </a>
+</p>
 Execute steps:<br>
 1. From CMD run<br>
  dotnet dev-certs https --clean<br>
